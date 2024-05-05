@@ -5,6 +5,8 @@ import logging
 import re
 import time
 import zlib
+import clickhouse_connect
+from datetime import datetime
 from typing import Optional, List, NamedTuple
 
 import regex as re
@@ -130,6 +132,7 @@ class TemplateMiner:
 
 
     def outputResult(self, cluster, change_type):
+            client = clickhouse_connect.get_client(host='localhost', username='default', password='')
             df_events = []
             if change_type == "cluster_created":
                 df_events.append([cluster.cluster_id, cluster.get_template(), 1])
@@ -160,6 +163,24 @@ class TemplateMiner:
                 header=self.drain.print_headers,
                 columns=["EventId", "EventTemplate", "Occurrences"],
             )
+            print(self.df_log.iloc[0]["LineId"])
+            level = self.df_log.iloc[0]["Level"]
+            if level == "INFO":
+                level_number = 9
+            else:
+                level_number = 13
+            data = [datetime.strptime(self.df_log.iloc[0]["Date"],
+                                      "%Y-%m-%dT%H:%M:%S.%f%z"),
+                                      level,
+                                      level_number,
+                                      self.df_log.iloc[0]["Content"],
+                                      {'Pid': str(self.df_log.iloc[0]["Pid"]),
+                                       'Thread': self.df_log.iloc[0]["Thread"],
+                                       'Logger': self.df_log.iloc[0]["Logger"],
+                                       'EventTemplate': self.df_log.iloc[0]["EventTemplate"],
+                                       'EventId': str(self.df_log.iloc[0]["EventId"])
+                                       }]
+            client.insert('otel_logs', [data], column_names=['Timestamp', 'SeverityText', 'SeverityNumber', 'Body', 'LogAttributes'])
             #print("PARAMETERS-----", self.extract_parameters(cluster.get_template(), self.df_log.iloc[0]["Content"], exact_matching=False))
             self.drain.print_headers = False
 
