@@ -37,7 +37,8 @@ class TemplateMiner:
     def __init__(self,
                  persistence_handler: PersistenceHandler = None,
                  config: TemplateMinerConfig = None, log_format: str = "",
-                 log_file: str = "", output_dir: str = "", clickhouse: bool = False):
+                 log_file: str = "", output_dir: str = "", clickhouse: bool = False,
+                 headers_mapping: dict = None, time_format: str = ""):
         """
         Wrapper for Drain with persistence and masking support
         :param persistence_handler: The type of persistence to use. When None, no persistence is applied.
@@ -91,12 +92,16 @@ class TemplateMiner:
         self.rex = None
         self.path = log_file
         self.output_dir = output_dir
+        self.headers_mapping = headers_mapping
+        self.time_format = time_format
+        self.headers = None
 
         if persistence_handler is not None:
             self.load_state()
 
     def load_data(self, log_message: str):
         headers, regex = self.generate_logformat_regex(self.log_format)
+        self.headers = headers
         self.df_log = self.log_to_dataframe(
             log_message, regex, headers
         )
@@ -253,24 +258,23 @@ class TemplateMiner:
 
     def export_to_clickhouse(self):
         level_map = {"TRACE": 1, "DEBUG": 5, "INFO": 9, "WARN": 13, "ERROR": 17, "FATAL": 21}
-        level = self.df_log.iloc[0]["Level"]
+        level = self.df_log.iloc[0][self.headers_mapping["Level"]]
         if level in level_map:
             level_number = level_map[level]
         else:
             level_number = 9
-        log_attributes = {'Pid': str(self.df_log.iloc[0]["Pid"]),
-                                    'Thread': self.df_log.iloc[0]["Thread"],
-                                    'Logger': self.df_log.iloc[0]["Logger"],
-                                    'EventTemplate': self.df_log.iloc[0]["EventTemplate"],
-                                    'EventId': str(self.df_log.iloc[0]["EventId"])
-                                    }
+        log_attributes = {'EventTemplate': self.df_log.iloc[0]["EventTemplate"],
+                          'EventId': str(self.df_log.iloc[0]["EventId"])}
+        for header in self.headers:
+            if header not in self.headers_mapping:
+                log_attributes[header] = str(self.df_log.iloc[0][header])
         for key, value in self.df_log.iloc[0]["ParameterList"].items():
             log_attributes[key] = value
-        data = [datetime.strptime(self.df_log.iloc[0]["Date"],
-                                    "%Y-%m-%dT%H:%M:%S.%f%z"),
+        data = [datetime.strptime(self.df_log.iloc[0][self.headers_mapping["Timestamp"]],
+                                    self.time_format),
                                     level,
                                     level_number,
-                                    self.df_log.iloc[0]["Content"],
+                                    self.df_log.iloc[0][self.headers_mapping["Content"]],
                                     log_attributes]
         self.clickhouse.insert('otel_logs', [data], column_names=['Timestamp', 'SeverityText', 'SeverityNumber', 'Body', 'LogAttributes'])
 

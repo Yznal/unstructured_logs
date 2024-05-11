@@ -140,3 +140,4 @@ params_dict["B"] = 3
 print(params_dict)
 for key, value in params_dict.items():
     print(key, value)
+print("A" in params_dict)

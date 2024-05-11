@@ -62,7 +62,14 @@ input_dir  = '../../../spring-petclinic/' # The input directory of log file
 output_dir = 'demo_result/'  # The output directory of parsing results
 log_file   = 'spring.log'  # The input log file name
 
-template_miner = TemplateMiner(persistence_handler=persistence, config=config, log_format=log_format, log_file=log_file, output_dir=output_dir, clickhouse=True)
+headers_mapping = {"Timestamp": "Date",
+                   "Level": "Level",
+                   "Content": "Content"}
+time_format = "%Y-%m-%dT%H:%M:%S.%f%z"
+
+template_miner = TemplateMiner(persistence_handler=persistence, config=config, log_format=log_format,
+                               log_file=log_file, output_dir=output_dir, clickhouse=True,
+                               headers_mapping=headers_mapping, time_format=time_format)
 print(template_miner.path)
 print(f"Drain3 started with '{persistence_type}' persistence")
 print(f"{len(config.masking_instructions)} masking instructions are in use")
