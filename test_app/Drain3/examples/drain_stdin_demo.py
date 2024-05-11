@@ -7,7 +7,6 @@ import sys
 import regex as re
 import os
 import pandas as pd
-import clickhouse_connect
 from os.path import dirname
 
 from drain3 import TemplateMiner
@@ -21,12 +20,6 @@ persistence_type = "FILE"
 logger = logging.getLogger(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(message)s')
 
-#client = clickhouse_connect.get_client(host='localhost', username='default', password='')
-#client.command('CREATE TABLE new_table (key UInt32, value String, metric Float64) ENGINE MergeTree ORDER BY key')
-#row1 = [1000, 'String Value 1000', 5.233]
-#row2 = [2000, 'String Value 2000', -107.04]
-#data = [row1, row2]
-#client.insert('new_table', data, column_names=['key', 'value', 'metric'])
 
 def follow(thefile):
     thefile.seek(0,2)
@@ -69,10 +62,11 @@ input_dir  = '../../../spring-petclinic/' # The input directory of log file
 output_dir = 'demo_result/'  # The output directory of parsing results
 log_file   = 'spring.log'  # The input log file name
 
-template_miner = TemplateMiner(persistence, config, log_format, log_file, output_dir)
+template_miner = TemplateMiner(persistence_handler=persistence, config=config, log_format=log_format, log_file=log_file, output_dir=output_dir, clickhouse=True)
+print(template_miner.path)
 print(f"Drain3 started with '{persistence_type}' persistence")
 print(f"{len(config.masking_instructions)} masking instructions are in use")
-print(f"Starting training mode. Reading from std-in ('q' to finish)")
+print(f"Starting parsing.")
 
 logfile = open(os.path.join(input_dir, log_file),"r")
 loglines = follow(logfile)
@@ -85,19 +79,3 @@ for log_line in loglines:
     print(f"Parameters: {str(params)}")
     
 
-print("Training done. Mined clusters:")
-for cluster in template_miner.drain.clusters:
-    print(cluster)
-
-print(f"Starting inference mode, matching to pre-trained clusters. Input log lines or 'q' to finish")
-while True:
-    log_line = input("> ")
-    if log_line == 'q':
-        break
-    cluster = template_miner.match(log_line)
-    if cluster is None:
-        print(f"No match found")
-    else:
-        template = cluster.get_template()
-        print(f"Matched template #{cluster.cluster_id}: {template}")
-        print(f"Parameters: {template_miner.get_parameter_list(template, log_line)}")

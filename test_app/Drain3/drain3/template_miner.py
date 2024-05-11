@@ -5,6 +5,7 @@ import logging
 import re
 import time
 import zlib
+import nltk
 import clickhouse_connect
 from datetime import datetime
 from typing import Optional, List, NamedTuple
@@ -36,7 +37,7 @@ class TemplateMiner:
     def __init__(self,
                  persistence_handler: PersistenceHandler = None,
                  config: TemplateMinerConfig = None, log_format: str = "",
-                 log_file: str = "", output_dir: str = ""):
+                 log_file: str = "", output_dir: str = "", clickhouse: bool = False):
         """
         Wrapper for Drain with persistence and masking support
         :param persistence_handler: The type of persistence to use. When None, no persistence is applied.
@@ -81,7 +82,11 @@ class TemplateMiner:
         self.parameter_extraction_cache = LRUCache(self.config.parameter_extraction_cache_capacity)
         self.last_save_time = time.time()
 
+        if clickhouse:
+            self.clickhouse = clickhouse_connect.get_client(host='localhost', username='default', password='')
+
         self.df_log = None
+        self.use_clickhouse = clickhouse
         self.log_format = log_format
         self.rex = None
         self.path = log_file
@@ -131,8 +136,7 @@ class TemplateMiner:
             return headers, regex
 
 
-    def outputResult(self, cluster, change_type):
-            client = clickhouse_connect.get_client(host='localhost', username='default', password='')
+    def output_result(self, cluster, change_type):
             df_events = []
             if change_type == "cluster_created":
                 df_events.append([cluster.cluster_id, cluster.get_template(), 1])
@@ -151,7 +155,7 @@ class TemplateMiner:
             )
             self.df_log["EventId"] = cluster.cluster_id
             self.df_log["EventTemplate"] = cluster.get_template()
-            self.df_log["ParameterList"] = [self.get_parameter_list(cluster.get_template(), self.df_log.iloc[0]["Content"])]
+            self.df_log["ParameterList"] = [self.get_parameters_name(cluster)]
             self.df_log.to_csv(os.path.join(self.output_dir, self.path + "_structured.csv"),
                                index=False, mode='a', header=self.drain.print_headers
             )
@@ -163,26 +167,112 @@ class TemplateMiner:
                 header=self.drain.print_headers,
                 columns=["EventId", "EventTemplate", "Occurrences"],
             )
-            print(self.df_log.iloc[0]["LineId"])
-            level = self.df_log.iloc[0]["Level"]
-            if level == "INFO":
-                level_number = 9
-            else:
-                level_number = 13
-            data = [datetime.strptime(self.df_log.iloc[0]["Date"],
-                                      "%Y-%m-%dT%H:%M:%S.%f%z"),
-                                      level,
-                                      level_number,
-                                      self.df_log.iloc[0]["Content"],
-                                      {'Pid': str(self.df_log.iloc[0]["Pid"]),
-                                       'Thread': self.df_log.iloc[0]["Thread"],
-                                       'Logger': self.df_log.iloc[0]["Logger"],
-                                       'EventTemplate': self.df_log.iloc[0]["EventTemplate"],
-                                       'EventId': str(self.df_log.iloc[0]["EventId"])
-                                       }]
-            client.insert('otel_logs', [data], column_names=['Timestamp', 'SeverityText', 'SeverityNumber', 'Body', 'LogAttributes'])
+
+            
+            if self.use_clickhouse:
+                self.export_to_clickhouse()
             #print("PARAMETERS-----", self.extract_parameters(cluster.get_template(), self.df_log.iloc[0]["Content"], exact_matching=False))
             self.drain.print_headers = False
+
+
+    def get_parameters_name(self, cluster):
+        no_symb = re.sub("""([^\w\s*])""", " ", cluster.get_template())
+        no_space = re.sub("""\s+""", " ", no_symb)
+        tokens = nltk.word_tokenize(no_space)
+        params_list = ["NUM", "ID", "IP", "VER", "EQL", "FLT", "SEQ", "HEX", "CMD", "TIME", "*"]
+        tags = ["NN", "NNP", "NNS", "NNPS", "JJ", "JJR", "JJS"]
+        lower_tokens = []
+
+        for token in tokens:
+            if token not in params_list:
+                lower_tokens.append(token.lower())
+            else:
+                lower_tokens.append(token)
+        tagged = nltk.pos_tag(lower_tokens)
+
+        params_pos = []
+        names_pos = []
+
+        for pos, val in enumerate(tagged):
+            if val[1] == "IN":
+                tagged.pop(pos)
+        for pos, val in enumerate(tagged):
+            if val[0] in params_list:
+                params_pos.append(pos)
+        
+        dist = 1000
+        cnt = 0
+        nearest_pos = -1
+        try:
+            for pos, val in enumerate(tagged):
+                if val[0] == "EQL":
+                    dist = 1000
+                    names_pos.append(nearest_pos)
+                    nearest_pos = -1
+                    cnt += 1
+                    continue
+                if val[0] in params_list:
+                    continue
+                if cnt > len(params_pos) - 1:
+                    break
+                if val[1] not in tags and (pos - params_pos[cnt]) >= 2 and nearest_pos != -1:
+                    dist = 1000
+                    names_pos.append(nearest_pos)
+                    nearest_pos = -1
+                    cnt += 1
+                elif val[1] in tags and ((pos - params_pos[cnt]) > 2 or abs(pos - params_pos[cnt]) >= dist):
+                    dist = 1000
+                    names_pos.append(nearest_pos)
+                    cnt += 1
+                    if cnt <= len(params_pos) - 1:
+                        dist = abs(pos - params_pos[cnt])
+                    nearest_pos = pos
+                elif val[1] in tags and abs(pos - params_pos[cnt]) < dist:
+                    dist = abs(pos - params_pos[cnt])
+                    nearest_pos = pos
+            if cnt != len(params_pos):
+                names_pos.append(nearest_pos)
+        except Exception as e:
+            logger.error(e)
+        for i in range(len(params_pos) - cnt):
+                names_pos.append(-1)
+        params_name_list = []
+        for i in names_pos:
+            if i == -1:
+                params_name_list.append('')
+            else:
+                params_name_list.append(tagged[i][0])
+        params_names = {}
+        for i, param in enumerate(self.get_parameter_list(cluster.get_template(), self.df_log.iloc[0]["Content"])):
+            if params_name_list[i] == '':
+                params_names[f"Parameter {i}"] = param
+            else:
+                params_names[params_name_list[i]] = param
+        return params_names
+
+
+    def export_to_clickhouse(self):
+        level_map = {"TRACE": 1, "DEBUG": 5, "INFO": 9, "WARN": 13, "ERROR": 17, "FATAL": 21}
+        level = self.df_log.iloc[0]["Level"]
+        if level in level_map:
+            level_number = level_map[level]
+        else:
+            level_number = 9
+        log_attributes = {'Pid': str(self.df_log.iloc[0]["Pid"]),
+                                    'Thread': self.df_log.iloc[0]["Thread"],
+                                    'Logger': self.df_log.iloc[0]["Logger"],
+                                    'EventTemplate': self.df_log.iloc[0]["EventTemplate"],
+                                    'EventId': str(self.df_log.iloc[0]["EventId"])
+                                    }
+        for key, value in self.df_log.iloc[0]["ParameterList"].items():
+            log_attributes[key] = value
+        data = [datetime.strptime(self.df_log.iloc[0]["Date"],
+                                    "%Y-%m-%dT%H:%M:%S.%f%z"),
+                                    level,
+                                    level_number,
+                                    self.df_log.iloc[0]["Content"],
+                                    log_attributes]
+        self.clickhouse.insert('otel_logs', [data], column_names=['Timestamp', 'SeverityText', 'SeverityNumber', 'Body', 'LogAttributes'])
 
 
     def load_state(self):
@@ -247,7 +337,7 @@ class TemplateMiner:
         cluster, change_type = self.drain.add_log_message(masked_content)
         self.profiler.end_section("drain")
 
-        self.outputResult(cluster, change_type)
+        self.output_result(cluster, change_type)
 
         result = {
             "change_type": change_type,
