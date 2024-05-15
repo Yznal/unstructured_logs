@@ -1,0 +1,24 @@
+EventId,EventTemplate,Occurrences
+1,reverse mapping checking getaddrinfo for <:*:> [<:IP:>] failed - POSSIBLE BREAK-IN ATTEMPT!,85
+2,Invalid user <:*:> from <:IP:>,113
+3,input userauth request: invalid user <:*:> [preauth],113
+4,pam unix(sshd:auth): check pass; user unknown,135
+5,pam unix(sshd:auth): authentication failure; logname= uid=<:EQL:> euid=<:EQL:> tty=<:EQL:> ruser= rhost=<:EQL:>,110
+6,Failed <:*:> for invalid user <:*:> from <:IP:> port <:NUM:> ssh2,139
+7,Connection closed by <:IP:> [preauth],34
+8,Received disconnect from <:IP:>: <:NUM:>: <:*:> <:*:> <:*:>,414
+9,pam unix(sshd:auth): authentication failure; logname= uid=<:EQL:> euid=<:EQL:> tty=<:EQL:> ruser= rhost=<:EQL:> user=<:EQL:>,384
+10,Failed password for <:*:> from <:IP:> port <:NUM:> ssh2,383
+11,message repeated <:NUM:> times: [ Failed password for root from <:IP:> port <:NUM:> ssh2],2
+12,Disconnecting: Too many authentication failures for <:*:> [preauth],3
+13,PAM <:NUM:> more authentication failures; logname= uid=<:EQL:> euid=<:EQL:> tty=<:EQL:> ruser= rhost=<:EQL:> user=<:EQL:>,2
+14,PAM service(sshd) ignoring max retries; <:NUM:> > <:NUM:>,7
+15,Did not receive identification string from <:IP:>,10
+16,error: Received disconnect from <:IP:>: <:NUM:>: com.jcraft.jsch.JSchException: Auth fail [preauth],2
+17,Received disconnect from <:IP:>: <:NUM:>: Closed due to user request. [preauth],7
+18,PAM <:NUM:> more authentication <:*:> logname= uid=<:EQL:> euid=<:EQL:> tty=<:EQL:> ruser= rhost=<:EQL:>,8
+19,error: Received disconnect from <:IP:>: <:NUM:>: No more user authentication methods available. [preauth],45
+20,Accepted password for fztu from <:IP:> port <:NUM:> ssh2,1
+21,pam unix(sshd:session): session opened for user fztu by (uid=<:EQL:>,1
+22,pam unix(sshd:session): session closed for user fztu,1
+23,fatal: Write failed: Connection reset by peer [preauth],1

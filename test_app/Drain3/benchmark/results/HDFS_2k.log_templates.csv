@@ -1,0 +1,18 @@
+EventId,EventTemplate,Occurrences
+1,PacketResponder <:NUM:> for block blk <:*:> terminating,311
+2,BLOCK* NameSystem.addStoredBlock: blockMap updated: <:IP:>:50010 is added to blk <:*:> size <:NUM:>,314
+3,Received block blk <:*:> of size <:NUM:> from /<:IP:>,292
+4,Receiving block blk <:*:> src: <:*:> dest: /<:IP:>:50010,292
+5,BLOCK* NameSystem.allocateBlock: <:*:> temporary/ task 200811092030 <:*:> <:*:> <:*:> <:*:> blk <:*:>,26
+6,Verification succeeded for blk <:*:>,20
+7,Deleting block blk <:*:> file <:*:> <:*:>,263
+8,<:IP:>:50010 Served block blk <:*:> to /<:IP:>,80
+9,<:IP:>:50010:Got exception while serving blk <:*:> to /<:IP:>:,80
+10,BLOCK* NameSystem.delete: blk <:*:> is added to invalidSet of <:IP:>:50010,224
+11,BLOCK* NameSystem.allocateBlock: <:*:> temporary/ task 200811101024 <:*:> <:*:> <:*:> <:*:> blk <:*:>,89
+12,<:IP:>:50010 Starting thread to transfer block blk <:SEQ:> to <:IP:>:50010,1
+13,BLOCK* ask <:IP:>:50010 to delete blk <:*:>,2
+14,Received block blk <:*:> src: <:*:> dest: /<:IP:>:50010 of size <:NUM:>,2
+15,BLOCK* ask <:IP:>:50010 to delete blk <:*:> blk -<:SEQ:> blk <:*:> blk <:*:> blk <:*:> blk <:*:> blk -<:SEQ:> blk -<:SEQ:> blk <:*:> blk <:SEQ:> blk -<:SEQ:> blk <:*:> blk <:SEQ:> blk -<:SEQ:> blk -<:SEQ:> blk -<:SEQ:> blk <:*:> blk <:*:> blk <:SEQ:> blk -<:SEQ:> blk <:*:> blk <:*:> blk <:*:> blk -<:SEQ:> blk <:*:> blk <:SEQ:> blk <:*:> blk <:*:> blk -<:SEQ:> blk -<:SEQ:> blk <:SEQ:> blk <:*:> blk <:*:> blk <:SEQ:> blk <:*:> blk -<:SEQ:> blk <:*:> blk <:SEQ:> blk <:*:> blk <:SEQ:> blk <:*:> blk <:*:> blk <:SEQ:> blk <:SEQ:> blk <:*:> blk <:*:> blk <:*:> blk <:SEQ:> blk <:*:> blk <:*:> blk <:*:> blk -<:SEQ:> blk <:SEQ:> blk <:*:> blk <:SEQ:> blk <:SEQ:> blk -<:SEQ:> blk <:*:> blk -<:SEQ:> blk -<:SEQ:> blk -<:SEQ:> blk -<:SEQ:> blk <:*:> blk <:*:> blk <:SEQ:> blk <:*:> blk <:*:> blk <:*:> blk <:*:> blk <:SEQ:> blk <:*:> blk <:*:> blk <:SEQ:> blk <:*:> blk <:SEQ:> blk <:*:> blk -<:SEQ:> blk <:*:> blk <:SEQ:> blk <:SEQ:> blk <:*:> blk -<:SEQ:> blk <:*:> blk <:*:> blk -<:SEQ:> blk <:*:> blk <:*:> blk <:*:> blk <:*:> blk <:*:> blk -<:SEQ:> blk <:*:> blk <:*:> blk <:*:> blk <:*:> blk <:SEQ:> blk <:*:> blk <:*:> blk <:SEQ:> blk -<:SEQ:>,2
+16,BLOCK* ask <:IP:>:50010 to replicate blk -<:SEQ:> to datanode(s) <:IP:>:50010,1
+17,BLOCK* ask <:IP:>:50010 to delete blk -<:SEQ:> blk -<:SEQ:> blk -<:SEQ:> blk -<:SEQ:> blk -<:SEQ:> blk -<:SEQ:> blk <:SEQ:> blk <:SEQ:> blk <:SEQ:>,1

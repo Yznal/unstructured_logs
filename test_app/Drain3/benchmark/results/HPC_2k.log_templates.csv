@@ -1,0 +1,49 @@
+EventId,EventTemplate,Occurrences
+1,Component State Change: Component <:*:> is in the unavailable state (HWID=<:EQL:>,12
+2,clusterAddMember (command <:NUM:>),2
+3,risBoot (command <:NUM:>),1
+4,bootGenvmunix (command <:NUM:>),2
+5,boot (command <:NUM:>),67
+6,wait (command <:NUM:>),66
+7,halt (command <:NUM:>),3
+8,Command has <:*:> <:*:>,11
+9,Targeting <:*:> and <:*:> child of command <:NUM:>,5
+10,Targeting domains:node-D7 and nodes:node-[224\ <:NUM:>\ <:NUM:>],1
+11,Targeting <:*:> and <:*:>,2
+12,Targeting domains:node-D[0\ <:NUM:>] and nodes:node-[27\ <:NUM:>],1
+13,psu failure\ ambient=<:EQL:>,5
+14,Temperature (41C) exceeds warning threshold,2
+15,ClusterFileSystem: There is no server for ServerFileSystem domain <:*:>,32
+16,NIFF: node <:*:> detected a failed network connection on network <:IP:> via interface alt0,2
+17,ServerFileSystem: An ServerFileSystem domain panic has occurred on storage442,1
+18,Fan speeds ( <:NUM:> <:NUM:> <:NUM:> <:*:> <:NUM:> <:NUM:> ),80
+19,Fan speeds ( <:SEQ:>),10
+20,power/control problem,1
+21,Link <:*:>,26
+22,Link in reset,9
+23,Link error on broadcast tree <:*:>,4
+24,ServerFileSystem: ServerFileSystem domain <:*:> <:*:> is full,12
+25,ClusterFileSystem: ServerFileSystem domain <:*:> <:*:> backup is no longer served by node <:*:>,7
+26,ClusterFileSystem: ServerFileSystem domain <:*:> <:*:> is no longer served by node <:*:>,25
+27,ClusterFileSystem: ServerFileSystem domain <:*:> is no longer served by node <:*:>,4
+28,running,162
+29,blocked,15
+30,not responding,60
+31,configured out,91
+32,inconsistent nodesets <:*:> <:HEX:> <ok> <:*:> <:HEX:> <ok> <:*:> <:HEX:> <ok> <:*:> <:HEX:> <ok>,2
+33,active,5
+34,not-responding,1
+35,inconsistent nodesets node-1 <:HEX:> <ok> node-2 <:HEX:> <ok> node-7 <:HEX:> <ok> node-4 <:HEX:> <ok> node-6 <:HEX:> <ok> node-5 <:HEX:> <ok> node-3 <:HEX:> <ok> node-14 <:HEX:> <ok> node-13 <:HEX:> <ok> node-12 <:HEX:> <ok> node-10 <:HEX:> <ok> node-16 <:HEX:> <ok> node-15 <:HEX:> <ok>,1
+36,starting,1
+37,closing,1
+38,inconsistent nodesets node-31 <:HEX:> <ok> node-0 <:HEX:> <ok> node-1 <:HEX:> <ok> node-2 <:HEX:> <ok> node-30 <:HEX:> <ok>,1
+39,normal,206
+40,warning,205
+41,ambient=<:EQL:>,292
+42,critical,20
+43,Linkerror event interval expired,394
+44,risBoot (command <:NUM:>) Error: Timed out while waiting for SRM prompt: <ABORT code completed>,1
+45,boot (command <:NUM:>) Error: HALT asserted\ cannot continue,1
+46,Failed subcommands <:NUM:>,1
+47,link errors remain current,56
+48,NIFF: node <:*:> has detected an available network connection on network <:IP:> via interface <:*:>,91

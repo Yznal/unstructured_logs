@@ -1,0 +1,149 @@
+EventId,EventTemplate,Occurrences
+1,"printFreezingDisplayLogsopening app wtoken = AppWindowToken{9f4ef63 token=<:EQL:> ActivityRecord{de9231d u0 com.tencent.qt.qtl/.activity.info.NewsDetailXmlActivity t761}}}, allDrawn= false, startingDisplayed = false, startingMoved = false, isRelaunching = false",1
+2,"acquire lock=<:EQL:> flags=<:EQL:> tag=<:EQL:> Lock"", name=<:EQL:> ws=<:EQL:> uid=<:EQL:> pid=<:EQL:>",1
+3,ready=<:EQL:>,199
+4,Skipping <:*:> token=<:EQL:> <:*:> u0 <:*:> t761}}} -- going to hide,4
+5,visible is <:*:>,3
+6,mVisiblity.getValue is false,5
+7,visible is <:*:> gt <:NUM:>,2
+8,"release:lock=<:EQL:> flg=<:EQL:> tag=<:EQL:> Lock"", name=<:EQL:> ws=<:EQL:> uid=<:EQL:> pid=<:EQL:>",1
+9,updateClipping <:*:> getTopPadding=<:EQL:> Translation=<:EQL:>,65
+10,updateDimmedActivatedHideSensitive <:*:>,65
+11,getRunningAppProcesses: caller <:NUM:> does not hold REAL GET TASKS; limiting output,81
+12,release:lock=<:EQL:> flg=<:EQL:> tag=<:EQL:> name=<:EQL:> ws=<:EQL:> uid=<:EQL:> pid=<:EQL:>,25
+13,"setSystemUiVisibility vis=<:EQL:> mask=<:EQL:> oldVal=<:EQL:> newVal=<:EQL:> diff=<:EQL:> fullscreenStackVis=<:EQL:> dockedStackVis=<:EQL:> fullscreenStackBounds=<:EQL:> <:NUM:> - <:NUM:>, <:NUM:>), dockedStackBounds=<:EQL:> <:NUM:> - <:NUM:>, <:NUM:>)",200
+14,cancelAutohide,15
+15,notifyUiVisibilityChanged:vis=<:EQL:> SystemUiVisibility=<:EQL:>,19
+16,Destroying surface Surface(name=<:EQL:> - com.tencent.qt.qtl/com.tencent.video.player.activity.PlayerActivity) called by com.android.server.wm.WindowStateAnimator.destroyDeferredSurfaceLocked:942 com.android.server.wm.WindowManagerService.performDeferredDestroyWindow:3407 com.android.server.wm.Session.performDeferredDestroy:225 android.view.IWindowSession$Stub.onTransact:398 com.android.server.wm.Session.onTransact:136 android.os.Binder.execTransact:565 <bottom of call stack> <bottom of call stack>,1
+17,Destroying surface Surface(name=<:EQL:> called by com.android.server.wm.WindowStateAnimator.destroySurface:2060 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:913 <:*:> <:*:> <:*:> <:*:> <:*:> <:*:>,24
+18,userActivityNoUpdateLocked: eventTime=<:EQL:> event=<:EQL:> flags=<:EQL:> uid=<:EQL:>,69
+19,"orientation change is complete, call stopFreezingDisplayLocked",1
+20,Screen frozen for +1s0ms due to Window{ca98d5 u0 com.tencent.qt.qtl/com.tencent.qt.qtl.activity.info.NewsDetailXmlActivity},1
+21,startAnimation <:*:>,2
+22,<:*:> <:*:> <:*:> broadcastIntent}}) changed bounds; rebatching,2
+23,rotationForOrientationLw(orient=<:EQL:> last=<:EQL:> user=<:EQL:> USER ROTATION LOCKED,3
+24,"Application requested orientation <:NUM:>, got rotation <:NUM:> which has compatible metrics",3
+25,acquire lock=<:EQL:> flags=<:EQL:> tag=<:EQL:> name=<:EQL:> ws=<:EQL:> uid=<:EQL:> pid=<:EQL:>,25
+26,shouldBlockLocation running ...,37
+27,shouldBlockLocation <:*:>,37
+28,getNeighboringCellInfo calling app is com.amap.android.ams,5
+29,"Releasing suspend blocker ""PowerManagerService.WakeLocks"".",33
+30,HBM <:*:> =<:EQL:>,170
+31,Animating brightness: target=<:EQL:> rate=<:EQL:>,85
+32,suspendAutohide,23
+33,interceptKeyTq keycode=<:EQL:> interactive=<:EQL:> keyguardActive=<:EQL:> policyFlags=<:EQL:> down <:*:> canceled false,14
+34,"interceptKeyBeforeQueueing: key <:NUM:> , result : <:NUM:>",14
+35,resumeSuspendedAutohide,10
+36,querySoundEffectsEnabled...,17
+37,"Acquiring suspend blocker ""PowerManagerService.WakeLocks"".",33
+38,Bad activity token: android.os.BinderProxy@2bd79ce,1
+39,java.lang.ClassCastException: android.os.BinderProxy cannot be cast to com.android.server.am.ActivityRecord$Token,1
+40,<:*:> x=<:EQL:> y=<:EQL:>,2
+41,schedulePeek,1
+42,getRingtonePlayer...,2
+43,disable: < expand <:*:> alerts <:*:> <:*:> back home recent clock navigationbar search quick settings >,6
+44,"updateLightsLocked,mInCall =<:EQL:> = true,ledNotification =<:EQL:> <:*:>",6
+45,"updateLightsLocked,turn off notificationLight",6
+46,"overlapAmount:<:FLT:>, previousNotificationEnd:<:FLT:>, newYTranslation:-<:FLT:>, location:4, i:0, getTopPadding:<:FLT:>, <:*:>",13
+47,<:*:> i:0,13
+48,onExpandingStarted,2
+49,onTrackingStarted,1
+50,cancelPeek: false,20
+51,flingToHeight: vel=<:EQL:> expand=<:EQL:> target=<:EQL:> collapseSpeedUpFactor=<:EQL:> expandBecauseOfFalsing=<:EQL:>,2
+52,onTrackingStopped: true,1
+53,onExpandingFinished,2
+54,Sending non-protected broadcast com.android.systemui.statusbar.visible.change from system <:NUM:>:com.android.systemui/u0a37 pkg com.android.systemui,2
+55,logNotificationVisibilityChanges runInThread <:*:>,12
+56,onNotificationVisibilityChanged called,6
+57,isSimPinSecure mSimDatas is null or empty,1
+58,registerCallback not in UI.,3
+59,android.util.AndroidRuntimeException: Must execute in UI,3
+60,*** <:*:> callback for <:*:>,3
+61,[PhoneIntfMgr] getDataEnabled: subId=<:EQL:> <:*:>,2
+62,"onInterceptTouchEvent MotionEvent { action=<:EQL:> actionButton=<:EQL:> id[0]=<:EQL:> x[0]=<:EQL:> y[0]=<:EQL:> toolType[0]=<:EQL:> buttonState=<:EQL:> metaState=<:EQL:> flags=<:EQL:> edgeFlags=<:EQL:> pointerCount=<:EQL:> historySize=<:EQL:> eventTime=<:EQL:> downTime=<:EQL:> deviceId=<:EQL:> source=<:EQL:> }, mBlockTouches=<:EQL:>",4
+63,playSoundEffect effectType: <:NUM:>,10
+64,animateCollapsePanels:flags=<:EQL:> force=<:EQL:> delayed=<:EQL:> mExpandedVisible=<:EQL:>,8
+65,START u0 {act=<:EQL:> <:*:> <:*:> <:*:> <:*:> from uid <:NUM:> on display <:NUM:>,3
+66,ActivityRecord info: <:*:> <:*:> euid: <:NUM:>,4
+67,onNotificationClick called,2
+68,"cancelNotification,index:0",3
+69,"cancelNotification,cancelNotificationLocked,callingUid = <:NUM:>,callingPid = <:NUM:>",2
+70,"cancelNotificationLocked called,tell the app,reason = <:NUM:>",2
+71,cancelNotificationLocked:0|com.tencent.mobileqq|121|null|10111,2
+72,"cancelNotificationLocked,remove =<:EQL:>",2
+73,applyOptionsLocked: Unknown animationType=<:EQL:>,2
+74,"Taking screenshot from Surface with crop:[Rect(0, <:NUM:> - <:NUM:>, <:NUM:>)], width:[432], height:[696], <:*:> <:*:> inRotation:[false], rot:[0]",4
+75,removeNotification:0|com.tencent.mobileqq|121|null|10111,2
+76,updateNotificationShade: total=<:EQL:> active=<:EQL:>,13
+77,The change in focus caused us to need to do a layout <:*:>,12
+78,setLightsOn(true),181
+79,removeNotificationChildren,12
+80,"Skipping, withExcluded: false, tr.intent:Intent { flg=<:EQL:> cmp=<:EQL:> bnds=<:EQL:> }",14
+81,"Skipping, withExcluded: false, tr.intent:Intent { act=<:EQL:> flg=<:EQL:> cmp=<:EQL:> (has extras) }",14
+82,"Skipping, withExcluded: false, tr.intent:Intent { flg=<:EQL:> cmp=<:EQL:> (has extras) }",21
+83,"Skipping, withExcluded: false, tr.intent:Intent { act=<:EQL:> dat=<:EQL:> flg=<:EQL:> cmp=<:EQL:> (has extras) }",7
+84,"Skipping, withExcluded: false, tr.intent:Intent { act=<:EQL:> dat=<:EQL:> typ=<:EQL:> flg=<:EQL:> cmp=<:EQL:> (has extras) }",7
+85,getRecentTasks: <:*:>,28
+86,"cancelNotificationWithTag pid <:NUM:>,uid = <:NUM:>,tag = null,pkg =<:EQL:> =<:EQL:>",20
+87,"cancelNotification,index:-1",20
+88,makeExpandedInvisible: mExpandedVisible=<:EQL:>,4
+89,closeQs,12
+90,instantCollapse,9
+91,getTasks: caller <:NUM:> does not hold REAL GET TASKS; limiting output,37
+92,isMusicActive...,12
+93,"Start dump, calling from : pid=<:EQL:> uid=<:EQL:>",1
+94,setWiredDeviceConnectionState type: <:NUM:> state: <:NUM:>,2
+95,"ActivityManagerService,attachApplication,callingPid = <:NUM:>",4
+96,isBluetoothA2dpOn...,1
+97,isBluetoothScoOn...,1
+98,getLastAudibleStreamVolume treamType: <:NUM:>,9
+99,getDevicesForStream streamType: <:NUM:>,2
+100,cleanUpApplicationRecord -- <:NUM:>,6
+101,"cleanUpApplicationRecordLocked, pid: <:NUM:>, restart: false",6
+102,"cleanUpApplicationRecordLocked, reset pid: <:NUM:>, euid: <:NUM:>",6
+103,stopWifiDisplayScanLocked <:*:>,12
+104,getMode...,1
+105,setSpeakerphoneOn on: true,1
+106,setSpeakerphoneOn on:true,1
+107,"sending alarm <:*:> type <:NUM:> when <:NUM:> <:*:> <:*:> <:*:> broadcastIntent}}},repeatInterval = <:NUM:>,listenerTag =<:EQL:>",5
+108,Received TIME TICK alarm; rescheduling,3
+109,scheduleTimeTickEvent triggerAtTime = <:NUM:>,3
+110,received broadcast <:*:> <:*:>,4
+111,handleTimeUpdate,3
+112,Killing <:NUM:>:com.android.calendar/u0a13 (adj <:NUM:>): empty for 1810s,1
+113,Unable to start service Intent { act=<:EQL:> cmp=<:EQL:> } U=<:EQL:> not found,1
+114,unregisterAudioFocusListener...,1
+115,abandonAudioFocus,1
+116,"[HSM] stayAwake false uid: <:NUM:>, pid: <:NUM:>",1
+117,Pid:28601 MediaPlayer destructor,1
+118,Process com.tencent.mobileqq:qzone (pid <:NUM:>) has died,1
+119,Scheduling restart of crashed service com.tencent.mobileqq/cooperation.qzone.remote.logic.QzoneWebPluginProxyService in <:TIME:>,1
+120,"new Process app=<:EQL:> <:NUM:>:com.tencent.mobileqq:qzone/u0a111}, name: com.tencent.mobileqq:qzone, euid: <:NUM:>",1
+121,Start proc <:NUM:>:com.tencent.mobileqq:qzone/u0a111 for service com.tencent.mobileqq/cooperation.qzone.remote.logic.QzoneWebPluginProxyService,1
+122,enqueueNotificationInternal: pkg=<:EQL:> id=<:EQL:> notification=<:EQL:> contentView=<:EQL:> vibrate=<:EQL:> sound=<:EQL:> tick defaults=<:EQL:> flags=<:EQL:> color=<:EQL:> vis=<:EQL:>,1
+123,enqueueNotificationInternal: n.getKey = <:*:>,2
+124,getRingerMode...,3
+125,addNotification key=<:EQL:>,2
+126,mHeadsUpExistenceChangedRunnable,4
+127,Marking notification as seen <:*:>,2
+128,onNotificationExpansionChanged called,2
+129,"ACTIVITY check resid: com.example.android.notepad, size=<:EQL:>",2
+130,getAllCellInfo is blocked by permission manager . callingPackage = com.tencent.mobileqq,3
+131,getCellLocation is blocked by permission manager uid:10111 pid:28601,1
+132,isWiredHeadsetOn...,1
+133,"setDataSource(166, <:NUM:>, <:SEQ:>)",1
+134,getStreamVolume treamType: <:NUM:>,1
+135,updateIsPoweredLocked: wasPowered=<:EQL:> mIsPowered=<:EQL:> oldPlugType=<:EQL:> mPlugType=<:EQL:> mBatteryLevel=<:EQL:>,1
+136,ACTION BATTERY CHANGED AMP: <:NUM:>; Volt: <:NUM:>,1
+137,updateChargingLocked: charging=<:EQL:>,1
+138,"onReceive, action:android.intent.action.BATTERY CHANGED",1
+139,ACTION BATTERY CHANGED pluggedType: <:NUM:>,1
+140,ApStaDisabledState what=<:EQL:>,1
+141,DefaultState what=<:EQL:>,1
+142,battery changed pluggedType: <:NUM:>,1
+143,RefreshBatteryInfo isBatteryLow: <:NUM:>,2
+144,ChargingSpeed Wattage: <:NUM:> ST: <:NUM:> --> <:NUM:>,1
+145,handleBatteryUpdate,1
+146,enqueueNotificationInternal: pkg=<:EQL:> id=<:EQL:> notification=<:EQL:> contentView=<:EQL:> vibrate=<:EQL:> sound=<:EQL:> tick defaults=<:EQL:> flags=<:EQL:> color=<:EQL:> category=<:EQL:> vis=<:EQL:>,1
+147,START u0 {flg=<:EQL:> cmp=<:EQL:> (has extras)} from uid <:NUM:> on display <:NUM:>,1
+148,startActivity called from non-Activity context; forcing Intent.FLAG ACTIVITY NEW TASK for: Intent { flg=<:EQL:> cmp=<:EQL:> (has extras) },1

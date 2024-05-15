@@ -1,0 +1,47 @@
+EventId,EventTemplate,Occurrences
+1,Notification time out: <:NUM:>,37
+2,Received connection request <:*:>,299
+3,Send worker leaving thread,262
+4,Interrupted while waiting for message on queue,314
+5,"Connection broken for id <:NUM:>, my id = <:NUM:>, error =",291
+6,Interrupting SendWorker,266
+7,Closed socket connection for client <:*:> which had sessionid <:HEX:>,44
+8,caught end of stream exception,37
+9,Client attempting to <:*:> <:*:> <:*:> at <:*:>,44
+10,Established session <:HEX:> with negotiated timeout <:NUM:> for client <:*:>,50
+11,Accepted socket connection from <:*:>,48
+12,Unexpected Exception:,1
+13,Connection request from old client <:*:> will be dropped if server is in r-o mode,39
+14,Server <:*:>,8
+15,Cannot open channel to <:NUM:> at election address /<:IP:>:3888,86
+16,Processed session termination for sessionid: <:HEX:>,47
+17,"Expiring session <:HEX:>, timeout of <:TIME:> exceeded",40
+18,******* GOODBYE <:*:> ********,19
+19,LOOKING,4
+20,My election bind port: <:IP:>/<:IP:>:3888,1
+21,"Have smaller server identifier, so dropping the connection: (2, <:NUM:>)",1
+22,FOLLOWING,2
+23,"New election. My id = <:NUM:>, proposed zxid=<:EQL:>",1
+24,FOLLOWING - LEADER ELECTION TOOK - <:NUM:>,2
+25,"Notification: <:NUM:> (n.leader), <:HEX:> (n.zxid), <:HEX:> (n.round), <:*:> (n.state), <:NUM:> (n.sid), <:HEX:> (n.peerEPoch), <:*:> (my state)",12
+26,autopurge.snapRetainCount set to <:NUM:>,1
+27,Server environment:java.vendor=<:EQL:> Corporation,2
+28,Revalidating client: <:HEX:>,3
+29,Server environment:zookeeper.version=<:EQL:> built on <:NUM:>/10/2013 <:NUM:>:26 GMT,1
+30,Closed socket connection for client <:*:> (no session established for client),4
+31,Exception causing close of session <:HEX:> due to java.io.IOException: ZooKeeperServer not running,3
+32,tickTime set to <:NUM:>,1
+33,Unexpected exception causing shutdown while sock still open,12
+34,Got user-level KeeperException when processing sessionid:<:HEX:> type:create cxid:<:HEX:> zxid:<:HEX:> txntype:-1 reqpath:n/a Error Path:/home/curi/.zookeeper Error:KeeperErrorCode = NodeExists for /home/curi/.zookeeper,1
+35,Starting quorum peer,1
+36,Snapshotting: <:HEX:> to <:*:>,2
+37,autopurge.purgeInterval set to <:NUM:>,3
+38,Follower sid: <:NUM:> : info : org.apache.zookeeper.server.quorum.QuorumPeer$QuorumServer@33557fe4,1
+39,maxSessionTimeout set to <:NUM:>,1
+40,Have quorum of supporters; starting up and setting last processed zxid: <:HEX:>,1
+41,shutdown of request processor complete,1
+42,First is <:HEX:>,1
+43,Reading snapshot /var/lib/zookeeper/version-2/snapshot.b00000084,1
+44,Sending DIFF,1
+45,Getting a snapshot from leader,2
+46,minSessionTimeout set to <:NUM:>,2

@@ -4,9 +4,7 @@ import json
 import time
 import logging
 import sys
-import regex as re
 import os
-import pandas as pd
 from os.path import dirname
 
 from drain3 import TemplateMiner
@@ -57,8 +55,8 @@ config.load(f"{dirname(__file__)}/drain3.ini")
 config.profiling_enabled = False
 
 log_format = "<Date> <Level> <Pid> --- \[<Thread>\] <Logger> : <Content>"
-path = "../../../spring-petclinic/spring.log"
-input_dir  = '../../../spring-petclinic/' # The input directory of log file
+path = "/Drain3/spring-petclinic/spring.log"
+input_dir  = '/Drain3/spring-petclinic' # The input directory of log file
 output_dir = 'demo_result/'  # The output directory of parsing results
 log_file   = 'spring.log'  # The input log file name
 
@@ -68,12 +66,13 @@ headers_mapping = {"Timestamp": "Date",
 time_format = "%Y-%m-%dT%H:%M:%S.%f%z"
 
 template_miner = TemplateMiner(persistence_handler=persistence, config=config, log_format=log_format,
-                               log_file=log_file, output_dir=output_dir, clickhouse=True,
+                               log_file=log_file, output_dir=output_dir, clickhouse=False,
                                headers_mapping=headers_mapping, time_format=time_format)
 print(template_miner.path)
 print(f"Drain3 started with '{persistence_type}' persistence")
 print(f"{len(config.masking_instructions)} masking instructions are in use")
 print(f"Starting parsing.")
+print(os.getcwd())
 
 logfile = open(os.path.join(input_dir, log_file),"r")
 loglines = follow(logfile)

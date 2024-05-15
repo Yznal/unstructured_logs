@@ -1,0 +1,117 @@
+EventId,EventTemplate,Occurrences
+1,instruction cache parity error corrected,42
+2,<:NUM:> double-hummer alignment exceptions,109
+3,"CE sym <:NUM:>, at <:HEX:>, mask <:HEX:>",92
+4,ciod: failed to read message prefix on control stream (CioStream socket to <:*:>,3
+5,generating <:*:>,721
+6,force load/store alignment...............0,2
+7,ciod: cpu <:NUM:> at treeaddr <:NUM:> sent unrecognized message <:HEX:>,1
+8,ciod: LOGIN <:*:> <:*:> failed: No such file or directory,5
+9,"<:NUM:> ddr <:*:> detected and corrected on rank <:NUM:>, symbol <:*:> <:*:> <:*:>",25
+10,data TLB error interrupt,60
+11,ciod: Message code <:NUM:> is not <:NUM:> or <:NUM:>,1
+12,data storage interrupt,30
+13,instruction address: <:HEX:>,21
+14,data address: <:HEX:>,8
+15,machine check: i-fetch......................0,5
+16,program interrupt: <:*:> <:*:>,21
+17,exception syndrome register: <:HEX:>,6
+18,data store interrupt caused by <:*:>,10
+19,store operation.............................1,2
+20,machine state register: <:HEX:>,4
+21,problem state (0=<:EQL:>,3
+22,floating point instr. enabled.....1,4
+23,auxiliary processor.........................0,5
+24,machine check enable..............0,2
+25,floating pt ex mode <:NUM:> enable......0,5
+26,debug interrupt enable............0,1
+27,byte ordering exception.....................0,2
+28,data address space................0,5
+29,core configuration register: <:HEX:>,7
+30,program interrupt: fp cr update.............0,1
+31,guaranteed <:*:> cache block <:*:>,3
+32,program interrupt: fp cr field .............0,4
+33,icache prefetch <:*:>,3
+34,wait state enable.................0,1
+35,critical input interrupt enable...0,1
+36,special purpose registers:,1
+37,lr:00004ed0 cr:28244842 xer:20000002 ctr:00086000,1
+38,rts internal error,1
+39,debug wait enable.................0,2
+40,instruction address space.........0,1
+41,disable store gathering..................0,3
+42,total of <:NUM:> ddr error(s) detected and corrected,13
+43,"ciod: Error loading <:*:> invalid or missing program image, No such file or directory",14
+44,ciod: Error creating node map from file <:*:> <:*:> 8x4x4.map: <:*:> <:*:> <:*:>,2
+45,"ciod: Error loading <:*:> <:*:> invalid or missing program image, No such file or directory",5
+46,program interrupt,3
+47,Node card is not fully functional,6
+48,Ido chip status changed: <:*:> ip=<:EQL:> v=<:EQL:> t=<:EQL:> status=<:EQL:> <:*:> <:*:> <:NUM:> <:*:> PDT <:NUM:>,5
+49,Can not get assembly information for node card,6
+50,ciod: Missing or invalid fields on line <:NUM:> of node map file <:*:>,2
+51,<:NUM:> torus receiver <:*:> input pipe error(s) (dcr <:HEX:>) detected and corrected,4
+52,ciod: <:*:> <:*:> <:NUM:> <:*:> <:*:> <:*:> <:*:> at line <:NUM:> of node map file <:*:>,2
+53,ciod: Error creating node map from file /p/gb2/pakin1/sweep3d-5x5x400-10mk-3mmi-1024pes-xyzt/xyzt.map: Block device required,1
+54,rts panic! - stopping execution,2
+55,ciod: Error creating node map from file /home/pakin1/sweep3d-2.2b/results/random1-8x32x32x2.map: Permission denied,1
+56,"rts: kernel terminated for reason 1001rts: bad message header: invalid cpu, type=<:EQL:> cpu=<:EQL:> index=<:EQL:> total=<:EQL:>",1
+57,<:NUM:> floating point alignment exceptions,121
+58,New ido chip inserted into the database: <:*:> ip=<:EQL:> v=<:EQL:> t=<:EQL:>,3
+59,NodeCard is not fully functional,1
+60,"Node card status: ALERT <:NUM:>, ALERT <:NUM:>, ALERT <:NUM:>, ALERT <:NUM:> is (are) active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD is asserted. PGOOD error latch is clear. MPGOOD is OK. MPGOOD error latch is clear. The <:FLT:> volt rail is OK. The <:FLT:> volt rail is OK.",1
+61,"Node card VPD check: <:*:> node in processor card slot <:*:> do not match. VPD ecid <:SEQ:>, found <:SEQ:>",9
+62,"idoproxydb hit ASSERT condition: ASSERT expression=<:EQL:> Source file=<:EQL:> Source line=<:EQL:> Function=<:EQL:> IdoTransportMgr::SendPacket(IdoUdpMgr*, BglCtlPavTrace*)",35
+63,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The <:FLT:> volt rail is OK. The <:FLT:> volt rail is OK.,5
+64,"PrepareForService shutting down NodeCard(mLctn(R25-M1-N2), mCardSernum(<:SEQ:>), mLp(FF:F2:9F:16:CF:0F:00:0D:60:E9:30:F0), mIp(<:IP:>), mType(4)) as part of Service Action <:NUM:>",1
+65,rts tree/torus link training failed: wanted: B C X+ X- Y+ Y- Z+ Z- got: B C X- Y- Z+ Z-,1
+66,<:NUM:> tree receiver <:NUM:> in re-synch state event(s) (dcr <:HEX:>) detected,3
+67,"ciod: Error loading /bgl/apps/scaletest/performance/MINIBEN/mb 243 0810/allreduce.rts: invalid or missing program image, Exec format error",15
+68,ciod: LOGIN <:*:> failed: No such file or directory,10
+69,ciod: Error reading message prefix after LOAD MESSAGE on CioStream socket to <:*:> Link has been severed,9
+70,rts: kernel terminated for reason <:NUM:>,6
+71,ciod: generated <:NUM:> core files for program <:*:> <:*:>,18
+72,iar <:*:> dear <:*:>,208
+73,"NFS Mount failed on <:*:> slept <:TIME:>, retrying (1)",2
+74,Lustre mount FAILED : <:*:> : point /p/gb1,9
+75,ciod: pollControlDescriptors: Detected the debugger died.,3
+76,"ciod: In packet from node <:FLT:> (R62-M1-Nf-C:J03-U11), message code <:NUM:> is not <:NUM:> or <:NUM:> (softheader=<:EQL:> <:SEQ:>)",1
+77,suppressing further interrupts of same type,2
+78,ciod: LOGIN chdir(/home/spelce1/UMT2K/umt2k/ckpt umt2k src/TEST/NEW TEST) failed: No such file or directory,2
+79,ciod: LOGIN chdir(/home/yates/SWL tests/BGL64k SWL tests develop/MPI-VAL/MPITs v050902/rundir) failed: No such file or directory,1
+80,rts: bad message header: expecting type <:NUM:> instead of type <:NUM:> (softheader=<:EQL:> <:SEQ:>) PSR0=<:EQL:> PSR1=<:EQL:> PRXF=<:EQL:> PIXF=<:EQL:>,1
+81,ciod: generated <:NUM:> core files for program <:*:>,6
+82,ciod: generated <:NUM:> core files for program <:*:> <:*:> <:*:> <:*:>,4
+83,critical input interrupt (unit=<:EQL:> bit=<:EQL:> warning for torus <:*:> wire,2
+84,"ciod: Error loading <:*:> <:*:> invalid or missing program image, Permission denied",12
+85,"ciod: Error loading <:*:> invalid or missing program image, Permission denied",6
+86,"ciod: Error loading <:*:> <:*:> <:*:> invalid or missing program image, No such file or directory",2
+87,data cache search parity error detected. attempting to correct,6
+88,shutdown complete,1
+89,"ciod: Error loading /bgl/apps/followup/RAPTOR/new.raptor.trace: invalid or missing program image, Exec format error",2
+90,"Error receiving packet on tree network, expecting type <:NUM:> instead of type <:NUM:> (softheader=<:EQL:> <:SEQ:>) PSR0=<:EQL:> PSR1=<:EQL:> PRXF=<:EQL:> PIXF=<:EQL:>",5
+91,"ciod: Error loading /home/spelce1/HPCC IBM/Urgent/COP/64K/hpcc-<:VER:>.102905 opt essl cpm: invalid or missing program image, Permission denied",1
+92,<:NUM:> L3 EDRAM error(s) (dcr <:HEX:>) detected and corrected,1
+93,"critical input interrupt (unit=<:EQL:> bit=<:EQL:> warning for <:*:> <:*:> wire, suppressing further interrupts of same type",3
+94,ciod: generated <:NUM:> core files for program <:*:> static/SPaSM <:*:>,2
+95,<:NUM:> torus sender z- retransmission error(s) (dcr <:HEX:>) detected and corrected over <:TIME:>,2
+96,"ciod: Received signal <:NUM:>, code=<:EQL:> errno=<:EQL:> address=<:EQL:>",16
+97,Lustre mount FAILED : <:*:> : block id : location,2
+98,MACHINE CHECK DCR read timeout (mc=<:EQL:> iar <:HEX:> lr <:HEX:>),7
+99,ciod: Error reading message prefix on CioStream socket to <:*:> Connection timed out,2
+100,ciod: Error reading message prefix on CioStream socket to <:*:> <:*:> <:*:> <:*:> <:*:>,12
+101,dbcr0=<:EQL:> dbsr=<:EQL:> ccr0=<:EQL:>,1
+102,r24=<:EQL:> r25=<:EQL:> r26=<:EQL:> r27=<:EQL:>,1
+103,<:NUM:> tree receiver <:NUM:> in re-synch state event(s) (dcr <:HEX:>) detected over <:TIME:>,2
+104,<:NUM:> microseconds spent in the rbs signal handler during <:NUM:> calls. <:NUM:> microseconds was the maximum time for a single instance of a correctable ddr.,51
+105,"<:NUM:> total interrupts. <:NUM:> critical input interrupts. <:NUM:> microseconds total spent on critical input interrupts, <:NUM:> microseconds max time in a critical input interrupt.",71
+106,"PrepareForService shutting down Node card(mLctn(R10-M1-N2), mCardSernum(<:SEQ:>), mLp(FF:F2:9F:16:E0:DA:00:0D:60:E9:1F:25), mIp(<:IP:>), mType(4)) as part of Service Action <:NUM:>",1
+107,"Kernel detected <:NUM:> integer alignment exceptions <:*:> iar <:HEX:>, dear <:HEX:> <:*:> iar <:HEX:>, dear <:HEX:> <:*:> iar <:HEX:>, dear <:HEX:> <:*:> iar <:HEX:>, dear <:HEX:> <:*:> iar <:HEX:>, dear <:HEX:> <:*:> iar <:HEX:>, dear <:HEX:> <:*:> iar <:HEX:>, dear <:HEX:> <:*:> iar <:HEX:>, dear <:HEX:>",9
+108,total of <:NUM:> ddr error(s) detected and corrected over <:TIME:>,4
+109,minus normalized number..................0,1
+110,fraction rounded.........................0,1
+111,size of scratchpad portion of L3.........0 (0M),1
+112,ciod: LOGIN chdir(/p/gb1/stella/RAPTOR/2183) failed: Input/output error,1
+113,<:NUM:> L3 EDRAM error(s) (dcr <:HEX:>) detected and corrected over <:TIME:>,1
+114,"ciod: Error loading /g/g24/buber/Yunsic/BlueGene/partad.develf/taddriver.32.exe: program image too big, <:NUM:> > <:NUM:>",1
+115,fpr29=<:EQL:> <:SEQ:>,1
+116,Machine State Register: <:HEX:>,1

@@ -3,6 +3,7 @@ from datetime import datetime
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 import nltk
 import re
+import os
 
 """ client = clickhouse_connect.get_client(host='localhost', username='default', password='')
 client.command('''CREATE TABLE IF NOT EXISTS otel_logs
@@ -141,3 +142,4 @@ print(params_dict)
 for key, value in params_dict.items():
     print(key, value)
 print("A" in params_dict)
+print(os.path.join(input_dir, os.path.dirname("HDFS/HDFS_2k.log")))

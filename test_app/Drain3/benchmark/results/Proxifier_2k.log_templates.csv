@@ -1,0 +1,11 @@
+EventId,EventTemplate,Occurrences
+1,<:*:> open through proxy <:*:> <:*:>,956
+2,"<:*:> close, <:NUM:> bytes sent, <:NUM:> bytes received, lifetime <:*:>",355
+3,"proxy.cse.cuhk.edu.hk:5070 close, <:NUM:> bytes <:*:> <:*:> <:*:> <:*:> <:*:> received, lifetime <:*:>",111
+4,"<:*:> close, <:NUM:> bytes <:*:> KB) sent, <:NUM:> bytes <:*:> <:*:> received, lifetime <:*:>",303
+5,<:*:> error : A connection request was canceled before the completion.,31
+6,<:*:> error : Could not connect through proxy proxy.cse.cuhk.edu.hk:5070 - Proxy closed the connection unexpectedly.,3
+7,"<:*:> close, <:NUM:> bytes sent, <:NUM:> bytes <:*:> KB) received, lifetime <:*:>",142
+8,"<:*:> error : Could not connect through proxy proxy.cse.cuhk.edu.hk:5070 - Proxy server cannot establish a connection with the target, status code <:NUM:>",17
+9,"<:*:> close, <:NUM:> bytes (<:FLT:> KB) sent, <:NUM:> bytes received, lifetime <:*:>",36
+10,<:*:> error : Could not connect to proxy proxy.cse.cuhk.edu.hk:5070 - <:*:> <:*:> <:*:> <:*:> error <:NUM:>,46

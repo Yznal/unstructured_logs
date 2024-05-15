@@ -1,0 +1,35 @@
+EventId,EventTemplate,Occurrences
+1,"Registered signal handlers for [TERM, HUP, INT]",1
+2,"Changing <:*:> acls to: yarn,curi",4
+3,"SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(yarn, curi); users with modify permissions: Set(yarn, curi)",2
+4,Slf4jLogger started,1
+5,Starting remoting,1
+6,Remoting started; listening on addresses :[akka.tcp://sparkExecutorActorSystem@mesos-slave-07:55904],1
+7,Successfully started service <:*:> on port <:NUM:>.,2
+8,Created local directory at /opt/hdfs/nodemanager/usercache/curi/appcache/application 1485248649253 0147/blockmgr-70293f72-844a-4b39-9ad6-fb0ad7e364e4,1
+9,MemoryStore started with capacity <:FLT:> GB,1
+10,Connecting to driver: spark://CoarseGrainedScheduler@<:IP:>:48069,1
+11,Successfully registered with driver,1
+12,Starting executor ID <:NUM:> on host mesos-slave-07,1
+13,Server created on <:NUM:>,1
+14,Trying to register BlockManager,1
+15,Registered BlockManager,1
+16,Got assigned task <:NUM:>,305
+17,Running task <:FLT:> in stage <:FLT:> (TID <:NUM:>),305
+18,Started reading broadcast variable <:NUM:>,37
+19,Block <:*:> <:*:> <:*:> stored as bytes in memory (estimated size <:FLT:> <:*:> free <:FLT:> KB),112
+20,Reading broadcast variable <:NUM:> took <:TIME:>,37
+21,Block broadcast <:*:> stored as values in memory (estimated size <:FLT:> <:*:> free <:FLT:> KB),37
+22,"Partition rdd <:*:> <:*:> not found, computing it",75
+23,Input split: <:*:>,45
+24,"mapred.tip.id is deprecated. Instead, use mapreduce.task.id",1
+25,"mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id",1
+26,"mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap",1
+27,"mapred.job.id is deprecated. Instead, use mapreduce.job.id",1
+28,"mapred.task.partition is deprecated. Instead, use mapreduce.task.partition",1
+29,"Times: total = <:NUM:>, boot = <:NUM:>, init = <:NUM:>, finish = <:NUM:>",375
+30,Finished task <:FLT:> in stage <:FLT:> (TID <:NUM:>). <:NUM:> bytes result sent to driver,300
+31,Found block rdd <:*:> <:*:> locally,257
+32,File Output Committer Algorithm version is <:NUM:>,30
+33,Saved output of task 'attempt 201706092018 <:*:> m <:*:> <:*:> to <:*:> temporary/0/task 201706092018 <:*:> m <:*:>,30
+34,attempt 201706092018 <:*:> m <:*:> <:*:> Committed,30

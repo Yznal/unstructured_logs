@@ -1,0 +1,57 @@
+EventId,EventTemplate,Occurrences
+1,"<:IP:> <:*:> <:*:> HTTP/<:FLT:>"" status: <:NUM:> len: <:NUM:> time: <:FLT:>",807
+2,[instance: <:*:> VM <:*:> (Lifecycle Event),109
+3,[instance: <:*:> During sync power state the instance has a pending task (spawning). Skip.,43
+4,image 0673dd71-34c5-4fbb-86c4-40623fbe45b4 at (/var/lib/nova/instances/ base/<:SEQ:>): checking,82
+5,"image 0673dd71-34c5-4fbb-86c4-40623fbe45b4 at (/var/lib/nova/instances/ base/<:SEQ:>): in use: on this node <:NUM:> local, <:NUM:> on other nodes sharing this instance storage",82
+6,Active base files: /var/lib/nova/instances/ base/<:SEQ:>,82
+7,Creating event <:*:> for instance <:*:>,22
+8,[instance: <:*:> Instance <:*:> successfully.,44
+9,[instance: <:*:> Took <:TIME:> to <:*:> the instance on the hypervisor.,43
+10,[instance: <:*:> Took <:TIME:> to build instance.,22
+11,Auditing locally available compute resources for node cp-1.slowvm1.tcloud-pg0.utah.cloudlab.us,15
+12,"Total usable vcpus: <:NUM:>, total allocated vcpus: <:NUM:>",15
+13,Final resource view: name=<:EQL:> phys ram=<:EQL:> used ram=<:EQL:> phys disk=<:EQL:> used disk=<:EQL:> total vcpus=<:EQL:> used vcpus=<:EQL:> pci stats=<:EQL:>,15
+14,Compute service record updated for cp-1.slowvm1.tcloud-pg0.utah.cloudlab.us:cp-1.slowvm1.tcloud-pg0.utah.cloudlab.us,15
+15,"<:IP:>,<:IP:> ""GET <:*:> <:*:> HTTP/<:FLT:>"" status: <:NUM:> len: <:NUM:> time: <:FLT:>",121
+16,"<:IP:>,<:IP:> ""GET <:*:> HTTP/<:FLT:>"" status: <:NUM:> len: <:NUM:> time: <:FLT:>",87
+17,[instance: <:*:> Terminating instance,22
+18,[instance: <:*:> Deleting instance files <:*:> del,21
+19,[instance: <:*:> Deletion of <:*:> del complete,21
+20,[instance: <:*:> Took <:TIME:> to deallocate network for instance.,21
+21,Unknown base file: /var/lib/nova/instances/ base/<:SEQ:>,30
+22,Removable base files: /var/lib/nova/instances/ base/<:SEQ:>,30
+23,Removing base or swap file: /var/lib/nova/instances/ base/<:SEQ:>,21
+24,HTTP exception thrown: No instances found for any event,21
+25,"[instance: <:*:> Attempting claim: memory <:NUM:> MB, disk <:NUM:> GB, vcpus <:NUM:> CPU",21
+26,"[instance: 96abccce-8d1f-4e07-b6d1-4b2ab87e23b4] <:*:> <:*:> <:*:> MB, <:*:> <:FLT:> MB",2
+27,[instance: <:*:> Total <:*:> <:NUM:> <:*:> used: <:FLT:> <:*:>,62
+28,"[instance: <:*:> <:*:> limit not specified, defaulting to unlimited",42
+29,[instance: 96abccce-8d1f-4e07-b6d1-4b2ab87e23b4] <:*:> <:*:>,2
+30,Successfully synced instances from host 'cp-1.slowvm1.tcloud-pg0.utah.cloudlab.us'.,2
+31,Running instance usage audit for host cp-1.slowvm1.tcloud-pg0.utah.cloudlab.us from <:NUM:>-05-16 <:NUM:>:00:00 to <:NUM:>-05-16 <:NUM:>:00:00. <:NUM:> instances.,1
+32,"[instance: <:*:> memory limit: <:FLT:> MB, free: <:FLT:> MB",20
+33,[instance: b562ef10-ba2d-48ae-bf4a-18666cba4a51] <:*:> <:*:>,2
+34,Base or swap file too young to remove: /var/lib/nova/instances/ base/<:SEQ:>,9
+35,[instance: 78dc1847-8848-49cc-933e-9239b12c9dcf] <:*:> <:*:>,2
+36,[instance: <:NUM:>-049b-41f6-9049-05fc479b6a7c] <:*:> <:*:>,2
+37,[instance: 7e7cc42f-3cb9-4d91-804c-f5a32d54f1c5] <:*:> <:*:>,2
+38,[instance: af5f7392-f7d4-4298-b647-c98924c64aa1] <:*:> <:*:>,2
+39,[instance: ae3a1b5d-eec1-45bb-b76a-c59d83b1471f] <:*:> <:*:>,2
+40,"<:IP:> ""GET /v2/<:SEQ:>/servers/detail?all tenants=<:EQL:> HTTP/<:FLT:>"" status: <:NUM:> len: <:NUM:> time: <:FLT:>",2
+41,The instance sync for host 'cp-1.slowvm1.tcloud-pg0.utah.cloudlab.us' did not match. Re-created its InstanceList.,5
+42,[instance: <:NUM:>-2f87-4da7-b7ee-4d20cc66e846] <:*:> <:*:>,2
+43,[instance: fecdd5a9-3ca0-4c82-9336-63b7774f738e] <:*:> <:*:>,2
+44,[instance: 63a0d960-70b6-44c6-b606-491478a5cadf] <:*:> <:*:>,2
+45,[instance: d54b44eb-2d1a-4aa2-ba6b-074d35f8f12c] <:*:> <:*:>,2
+46,[instance: 17288ea8-cbf4-4f0e-94fe-853fd2735f29] <:*:> <:*:>,2
+47,[instance: 70c1714b-c11b-4c88-b300-239afe1f5ff8] <:*:> <:*:>,2
+48,[instance: bf8c824d-f099-4433-a41e-e3da7578262e] <:*:> <:*:>,2
+49,"While synchronizing instance power states, found <:NUM:> instances in the database and <:NUM:> instances on the hypervisor.",1
+50,[instance: be793e89-2cc3-4f99-9884-9c6a624a84bc] <:*:> <:*:>,2
+51,[instance: a015cf14-84bb-4156-a48d-7c4824ac7a9d] <:*:> <:*:>,2
+52,[instance: d96a117b-0193-4549-bdcc-63b917273d1d] <:*:> <:*:>,2
+53,[instance: d6b7bd36-2943-4363-9235-fffdd89ea40e] <:*:> <:*:>,2
+54,[instance: 127e769a-4fe6-4548-93b1-513ac51e0452] <:*:> <:*:>,2
+55,[instance: c62f4f25-982c-4ea2-b5e4-93000edfcfbf] <:*:> <:*:>,2
+56,[instance: faf974ea-cba5-4e1b-93f4-3a3bc606006f] <:*:> <:*:>,2
