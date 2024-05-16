@@ -65,7 +65,7 @@ headers_mapping = {"Timestamp": "Date",
 time_format = "%Y-%m-%dT%H:%M:%S.%f%z"
 
 template_miner = TemplateMiner(persistence_handler=persistence, config=config, log_format=log_format,
-                               log_file=log_file, output_dir=output_dir, clickhouse=False,
+                               log_file=log_file, output_dir=output_dir, clickhouse=True,
                                headers_mapping=headers_mapping, time_format=time_format)
 print(template_miner.path)
 print(f"Drain3 started with '{persistence_type}' persistence")

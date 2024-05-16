@@ -84,7 +84,8 @@ class TemplateMiner:
         self.last_save_time = time.time()
 
         if clickhouse:
-            self.clickhouse = clickhouse_connect.get_client(host='localhost', username='default', password='')
+            self.clickhouse = clickhouse_connect.get_client(host='host.docker.internal', username='default', password='')
+            print("Successfull conection to clickhouse!!!!!")
 
         self.df_log = None
         self.use_clickhouse = clickhouse

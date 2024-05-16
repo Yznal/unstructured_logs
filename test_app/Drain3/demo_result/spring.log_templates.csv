@@ -1,24 +1,24 @@
 EventId,EventTemplate,Occurrences
-1,Starting PetClinicApplication using Java <:VER:> with PID <:NUM:> (/Users/andreykonstantinov/spring-petclinic/target/spring-petclinic-<:VER:>-SNAPSHOT.jar started by andreykonstantinov in /Users/andreykonstantinov/spring-petclinic),2
-2,"No active profile set, falling back to <:NUM:> default profile: ""default""",2
-3,Bootstrapping Spring Data JPA repositories in DEFAULT mode.,2
-4,Finished Spring Data repository scanning in <:TIME:>. Found <:NUM:> JPA repository interfaces.,2
-5,Tomcat initialized with port <:NUM:> (http),2
-6,Starting service [Tomcat],2
-7,Starting Servlet engine: [Apache Tomcat/<:VER:>],2
-8,Initializing Spring embedded WebApplicationContext,2
-9,Root WebApplicationContext: initialization completed in <:TIME:>,2
-10,HikariPool-1 - Starting...,2
-11,HikariPool-1 - Added connection conn0: url=<:EQL:> user=<:EQL:>,2
-12,HikariPool-1 - <:*:> <:*:>,6
-13,HHH000204: Processing PersistenceUnitInfo [name: default],2
-14,HHH000412: Hibernate ORM core version <:VER:>.Final,2
-15,HHH000026: Second-level cache disabled,2
-16,No LoadTimeWeaver setup: ignoring JPA class transformer,2
-17,HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration),2
-18,Initialized JPA EntityManagerFactory for persistence unit 'default',2
-19,"Hibernate is in classpath; If applicable, HQL parser will be used.",2
-20,Exposing <:NUM:> endpoint(s) beneath base path '/actuator',2
-21,Tomcat started on port <:NUM:> (http) with context path '',2
-22,Started PetClinicApplication in <:TIME:> (process running for <:FLT:>),2
-23,Closing JPA EntityManagerFactory for persistence unit 'default',2
+1,Starting PetClinicApplication using Java <:VER:> with PID <:NUM:> (/Users/andreykonstantinov/spring-petclinic/target/spring-petclinic-<:VER:>-SNAPSHOT.jar started by andreykonstantinov in /Users/andreykonstantinov/spring-petclinic),6
+2,"No active profile set, falling back to <:NUM:> default profile: ""default""",6
+3,Bootstrapping Spring Data JPA repositories in DEFAULT mode.,6
+4,Finished Spring Data repository scanning in <:TIME:>. Found <:NUM:> JPA repository interfaces.,6
+5,Tomcat initialized with port <:NUM:> (http),6
+6,Starting service [Tomcat],6
+7,Starting Servlet engine: [Apache Tomcat/<:VER:>],6
+8,Initializing Spring embedded WebApplicationContext,6
+9,Root WebApplicationContext: initialization completed in <:TIME:>,6
+10,HikariPool-1 - Starting...,6
+11,HikariPool-1 - Added connection conn0: url=<:EQL:> user=<:EQL:>,6
+12,HikariPool-1 - <:*:> <:*:>,18
+13,HHH000204: Processing PersistenceUnitInfo [name: default],6
+14,HHH000412: Hibernate ORM core version <:VER:>.Final,6
+15,HHH000026: Second-level cache disabled,6
+16,No LoadTimeWeaver setup: ignoring JPA class transformer,6
+17,HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration),6
+18,Initialized JPA EntityManagerFactory for persistence unit 'default',6
+19,"Hibernate is in classpath; If applicable, HQL parser will be used.",6
+20,Exposing <:NUM:> endpoint(s) beneath base path '/actuator',6
+21,Tomcat started on port <:NUM:> (http) with context path '',6
+22,Started PetClinicApplication in <:TIME:> (process running for <:FLT:>),6
+23,Closing JPA EntityManagerFactory for persistence unit 'default',6
