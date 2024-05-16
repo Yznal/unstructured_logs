@@ -55,8 +55,8 @@ config.load(f"{dirname(__file__)}/drain3.ini")
 config.profiling_enabled = False
 
 log_format = "<Date> <Level> <Pid> --- \[<Thread>\] <Logger> : <Content>"
-path = "/Drain3/spring-petclinic/spring.log"
-input_dir  = '/Drain3/spring-petclinic' # The input directory of log file
+path = "../../../spring-petclinic/spring.log"
+input_dir  = '../../../spring-petclinic' # The input directory of log file
 output_dir = 'demo_result/'  # The output directory of parsing results
 log_file   = 'spring.log'  # The input log file name
 

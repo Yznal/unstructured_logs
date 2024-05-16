@@ -10,7 +10,7 @@ EventId,EventTemplate,Occurrences
 9,Root WebApplicationContext: initialization completed in <:TIME:>,2
 10,HikariPool-1 - Starting...,2
 11,HikariPool-1 - Added connection conn0: url=<:EQL:> user=<:EQL:>,2
-12,HikariPool-1 - Start completed.,2
+12,HikariPool-1 - <:*:> <:*:>,6
 13,HHH000204: Processing PersistenceUnitInfo [name: default],2
 14,HHH000412: Hibernate ORM core version <:VER:>.Final,2
 15,HHH000026: Second-level cache disabled,2
@@ -21,3 +21,4 @@ EventId,EventTemplate,Occurrences
 20,Exposing <:NUM:> endpoint(s) beneath base path '/actuator',2
 21,Tomcat started on port <:NUM:> (http) with context path '',2
 22,Started PetClinicApplication in <:TIME:> (process running for <:FLT:>),2
+23,Closing JPA EntityManagerFactory for persistence unit 'default',2

@@ -161,20 +161,21 @@ class TemplateMiner:
             self.df_log["EventId"] = cluster.cluster_id
             self.df_log["EventTemplate"] = cluster.get_template()
             self.df_log["ParameterList"] = [self.get_parameters_name(cluster)]
-            self.df_log.to_csv(os.path.join(self.output_dir, self.path + "_structured.csv"),
-                               index=False, mode='a', header=self.drain.print_headers
+            self.df_log.to_csv(os.path.join(self.output_dir, self.path + "_structured.csv"),index=False,
+                               mode='a' if not self.drain.print_headers else 'w', header=self.drain.print_headers
             )
             
             df_event.to_csv(
                 os.path.join(self.output_dir, self.path + "_templates.csv"),
                 index=False,
-                mode='a',
+                mode='a' if not self.drain.print_headers else 'w',
                 header=self.drain.print_headers,
                 columns=["EventId", "EventTemplate", "Occurrences"],
             )
 
             
             if self.use_clickhouse:
+                self.create_table()
                 self.export_to_clickhouse()
             #print("PARAMETERS-----", self.extract_parameters(cluster.get_template(), self.df_log.iloc[0]["Content"], exact_matching=False))
             self.drain.print_headers = False
@@ -254,6 +255,31 @@ class TemplateMiner:
             else:
                 params_names[params_name_list[i]] = param
         return params_names
+
+    def create_table(self):
+        self.clickhouse.command('''CREATE TABLE IF NOT EXISTS otel_logs
+        (
+            `Timestamp` DateTime64(9) CODEC(Delta(8), ZSTD(1)),
+            `TraceId` String CODEC(ZSTD(1)),
+            `SpanId` String CODEC(ZSTD(1)),
+            `TraceFlags` UInt32 CODEC(ZSTD(1)),
+            `SeverityText` LowCardinality(String) CODEC(ZSTD(1)),
+            `SeverityNumber` Int32 CODEC(ZSTD(1)),
+            `ServiceName` LowCardinality(String) CODEC(ZSTD(1)),
+            `Body` String CODEC(ZSTD(1)),
+            `ResourceAttributes` Map(LowCardinality(String), String) CODEC(ZSTD(1)),
+            `LogAttributes` Map(LowCardinality(String), String) CODEC(ZSTD(1)),
+            INDEX idx_trace_id TraceId TYPE bloom_filter(0.001) GRANULARITY 1,
+            INDEX idx_res_attr_key mapKeys(ResourceAttributes) TYPE bloom_filter(0.01) GRANULARITY 1,
+            INDEX idx_res_attr_value mapValues(ResourceAttributes) TYPE bloom_filter(0.01) GRANULARITY 1,
+            INDEX idx_log_attr_key mapKeys(LogAttributes) TYPE bloom_filter(0.01) GRANULARITY 1,
+            INDEX idx_log_attr_value mapValues(LogAttributes) TYPE bloom_filter(0.01) GRANULARITY 1,
+            INDEX idx_body Body TYPE tokenbf_v1(32768, 3, 0) GRANULARITY 1
+        )
+        ENGINE = MergeTree
+        PARTITION BY toDate(Timestamp)
+        ORDER BY (ServiceName, SeverityText, toUnixTimestamp(Timestamp), TraceId)
+        SETTINGS index_granularity = 8192, ttl_only_drop_parts = 1''')
 
 
     def export_to_clickhouse(self):
