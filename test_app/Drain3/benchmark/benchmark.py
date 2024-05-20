@@ -16,6 +16,8 @@
 
 
 import sys
+import asyncio
+import psutil
 #sys.path.append("../../")
 from drain3 import TemplateMiner
 from drain3.template_miner_config import TemplateMinerConfig
@@ -24,6 +26,66 @@ from benchmark import evaluator
 import os
 import pandas as pd
 from os.path import dirname
+
+
+import time
+from statistics import mean
+from psutil import cpu_percent, virtual_memory
+import threading
+
+result_t = dict()
+class SystemMonitoring:
+    def __init__(self) -> None:
+        self.main_path = None
+        self.execution_stats: list = []
+        self._cpu_usage_data: list = []
+        self._ram_usage_data: list = []
+        self._sampling_task: asyncio.Task
+        self._loop = asyncio.get_event_loop()
+        self.max_cpu_used: float = 0
+        self.avg_cpu_used: float = 0
+        self.max_ram_used: float = 0
+        self.avg_ram_used: float = 0
+        self.duration: float = 0
+        self.start_time: float = 0
+        self.finish_time: float = 0
+        self.stats: dict = {}
+        self._sampling: bool = False
+        self.baseline_cpu: float = 0
+        self.baseline_ram: float = 0
+
+    def measure(self):
+        t = threading.currentThread()
+        self.baseline_cpu = cpu_percent(0.5)
+        self.baseline_ram = virtual_memory().percent
+        self.start_time = time.time()
+        while getattr(t, "do_run", True):
+            self._cpu_usage_data.append(cpu_percent(0.1))
+            self._ram_usage_data.append(virtual_memory().percent)
+            time.sleep(1)
+        
+        self.finish_time = time.time()
+        self.duration = self.finish_time - self.start_time
+
+        self.max_cpu_used = max(self._cpu_usage_data)
+        self.avg_cpu_used = mean(self._cpu_usage_data)
+        self.max_ram_used = max(self._ram_usage_data)
+        self.avg_ram_used = mean(self._ram_usage_data)
+
+        self.stats.update(
+            {
+                "duration": round(float(self.duration), 2),
+                "max_cpu": round(float(self.max_cpu_used), 2),
+                "avg_cpu": round(float(self.avg_cpu_used), 2),
+                "max_ram": round(float(self.max_ram_used), 2),
+                "avg_ram": round(float(self.avg_ram_used), 2),
+                "baseline_cpu": round(float(self.baseline_cpu), 2),
+                "baseline_ram": round(float(self.baseline_ram), 2),
+            }
+        )
+
+        global result_t
+        result_t = self.stats
 
 
 input_dir = "benchmark/loghub_2k/"  # The input directory of log file
@@ -154,8 +216,10 @@ benchmark_settings = {
     },
 }
 
+
 bechmark_result = []
 for dataset, setting in benchmark_settings.items():
+    sm = SystemMonitoring()
     print("\n=== Evaluation on %s ===" % dataset)
     indir = os.path.join(input_dir, os.path.dirname(setting["log_file"]))
     log_file = os.path.basename(setting["log_file"])
@@ -172,10 +236,16 @@ for dataset, setting in benchmark_settings.items():
                                 log_file=log_file, output_dir=output_dir, clickhouse=False)
 
     logfile = open(os.path.join(indir, log_file),"r")
+    #print(asyncio.run(sm.start()))
+    t = threading.Thread(target=sm.measure)
+    t.start()
     for log_line in logfile.readlines():
         result = template_miner.add_log_message(log_line)
-
-
+    t.do_run = False
+    t.join()
+    print(result_t)
+    #print(loop.run_until_complete(sm.stop()))
+    #print(asyncio.run(sm.stop()))
     F1_measure, accuracy = evaluator.evaluate(
         groundtruth=os.path.join(indir, log_file + "_structured.csv"),
         parsedresult=os.path.join(output_dir, log_file + "_structured.csv"),
